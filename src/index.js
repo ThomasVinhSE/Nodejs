@@ -2,6 +2,10 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
+const db = require('./config/db');
+
+//Connect to DB
+db.connect();
 
 const app = express();
 const port = 3000;
@@ -32,5 +36,5 @@ app.use(express.json());
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log('App listening at http://localhost:${port}');
 });
